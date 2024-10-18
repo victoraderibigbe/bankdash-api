@@ -1,0 +1,268 @@
+{
+    "swagger": "2.0",
+    "info": {
+        "description": "API Endpoints for bank application",
+        "version": "1.0.0",
+        "title": "bankapp-API"
+    },
+    "host": "https://",
+    "basePath": "/v1/api",
+    "tags": [
+        {
+            "name": "Registration",
+            "description": "Endpoints For Registration"
+        },
+        {
+            "name": "Trasaction",
+            "description": "Endpoint to get Member Info"
+        },
+        {
+            "name": "Admin",
+            "description": "Admin Endpoint"
+        },
+        {
+            "name": "Auth",
+            "description": "Authentication Endpoint"
+        },
+        {
+            "name": "worker",
+            "description": "Endpoints for worker"
+        },
+        {
+            "name": "Location",
+            "description": "Endpoints for Locations"
+        }
+    ],
+    "paths" : {
+
+        "/register/countries": {
+            "get": {
+                "tags": [
+                    "Registration"
+                ],
+                "summary": "Get list of countries",
+                "description": "",
+                "consumes": [
+                    "application/json"
+                ],
+                "parameters": [
+                    {
+                        "in": "body",
+                        "name": "body",
+                        "description": "",
+                        "required": true
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "Successful response"
+                    }
+                }
+            }
+        },
+        "/register/country/{countryId}": {
+            "get": {
+                "tags": [
+                    "Registration"
+                ],
+                "summary": "Get a single country",
+                "description": "",
+                "consumes": [
+                    "application/json"
+                ],
+                "parameters": [
+                    {
+                        "in": "body",
+                        "name": "body",
+                        "description": "",
+                        "required": true
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "Successful response"
+                    }
+                }
+            }
+        },
+        "/register/states/{countryId}": {
+            "get": {
+                "tags": [
+                    "Registration"
+                ],
+                "summary": "Get list of states from the country selected",
+                "description": "",
+                "consumes": [
+                    "application/json"
+                ],
+                "parameters": [
+                    {
+                        "in": "body",
+                        "name": "body",
+                        "description": "",
+                        "required": true
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "Successful response"
+                    }
+                }
+            }
+        },
+        "/register/state/{countryId}/{stateId}": {
+            "get": {
+                "tags": [
+                    "Registration"
+                ],
+                "summary": "Get a single state",
+                "description": "",
+                "consumes": [
+                    "application/json"
+                ],
+                "parameters": [
+                    {
+                        "in": "body",
+                        "name": "body",
+                        "description": "Career Data",
+                        "required": true
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "Successful response"
+                    }
+                }
+            }
+        },
+        "/register/lgas/{stateId}": {
+            "get": {
+                "tags": [
+                    "Registration"
+                ],
+                "summary": "Get list of lga from state selected",
+                "description": "",
+                "consumes": [
+                    "application/json"
+                ],
+                "parameters": [
+                    {
+                        "in": "body",
+                        "name": "body",
+                        "description": "",
+                        "required": true
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "Successful response"
+                    }
+                }
+            }
+        },
+        "/register/lga/{stateId}/{lgaId}": {
+            "get": {
+                "tags": [
+                    "Registration"
+                ],
+                "summary": "Geta single lga",
+                "description": "",
+                "consumes": [
+                    "application/json"
+                ],
+                "parameters": [
+                    {
+                        "in": "body",
+                        "name": "body",
+                        "description": "",
+                        "required": true
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "Successful response"
+                    }
+                }
+            }
+        },
+
+
+        "/auth/login": {
+            "post": {
+                "tags": [
+                    "Auth"
+                ],
+                "summary": "Login",
+                "description": "",
+                "consumes": [
+                    "application/json"
+                ],
+                "parameters": [
+                    {
+                        "in": "body",
+                        "name": "body",
+                        "description": "Login Credentials",
+                        "required": true,
+                        "schema": {
+                            "$ref": "#/definitions/LoginCredentials"
+                        }
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "Successful response"
+                    }
+                }
+            }
+        },
+
+
+
+
+
+        "/admin/login" : {
+            "post": {
+                "tags": [
+                    "Admin"
+                ],
+                "summary":"add new section",
+                "description": "",
+                "parameters": [
+                    {
+                        "in": "header",
+                        "name": "Authorization",
+                        "type": "string",
+                        "required": true,
+                        "description": "Bearer Token"
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "Successful response"
+                    }
+                }
+            }
+        },
+
+
+
+
+
+
+        "definitions": {
+
+            "LoginCredentials": {
+                "type": "object",
+                "properties": {
+                    "username": {
+                        "type": "string"
+                    },
+                    "password": {
+                        "type": "string"
+                    }
+                }
+            }
+        }
+
+    }
+}
